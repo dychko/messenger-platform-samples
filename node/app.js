@@ -307,11 +307,20 @@ function receivedMessage(event) {
         sendAccountLinking(senderID);
         break;
 
+        case 'location':
+
+
       default:
         sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
+      if (messageAttachments[0].type === 'location') {
+          var lat = message.attachments[0].payload.coordinates.lat;
+          var lon = message.attachments[0].payload.coordinates.lat;
+          sendTextMessage(senderID, "Location received: \n" + lat + "," + lon);
+      } else {
+          sendTextMessage(senderID, "Message with attachment received");
+      }
   }
 }
 
