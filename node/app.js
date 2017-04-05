@@ -381,7 +381,6 @@ function sendBookedVehicleMessage(recipientId) {
       id: recipientId
     },
     message: {
-      text: "Great. Your vehicle is booked:",
       attachment: {
         type: "template",
         payload: {
@@ -463,6 +462,7 @@ function receivedPostback(event) {
   if (payload === "GET_STARTED_PAYLOAD") {
     sendTextMessage(senderID, "Hello, it's great to meet you! I'm Free2Move and I'm a robot. I'm here to help you to get to know carsharing.");
   } else if (payload === "BOOK_VEHICLE_PAYLOAD") {
+    sendTextMessage(senderID, "Great. Your vehicle is booked");
     sendBookedVehicleMessage(senderID);
   } else if (payload === "OPEN_VEHICLE_PAYLOAD") {
     openVehicleMessage(senderID);
