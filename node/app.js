@@ -371,6 +371,39 @@ function sendVehicleMessage(recipientId) {
 }
 
 
+function sendBookedVehicleMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "Booked",
+            // subtitle: "",
+            image_url: SERVER_URL + "/assets/17814153_1471489529536199_1252537326_n.png",
+            buttons: [{
+              type: "postback",
+              title: "Open",
+              payload: "OPEN_VEHICLE_PAYLOAD"
+            }, {
+              type: "postback",
+              title: "Cancel",
+              payload: "CANCEL_VEHICLE_PAYLOAD"
+            }
+            ]
+          }]
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
 /*
  * Delivery Confirmation Event
  *
@@ -418,7 +451,8 @@ function receivedPostback(event) {
 
   if (payload === "GET_STARTED_PAYLOAD") {
     sendTextMessage(senderID, "Hello, it's great to meet you! I'm Free2Move and I'm a robot. I'm here to help you to get to know carsharing.");
-  } else {
+  } else if (payload === "BOOK_VEHICLE_PAYLOAD") {
+    sendBookedVehicleMessage(senderID);
     // When a postback is called, we'll send a message back to the sender to
     // let them know it was successful
     sendTextMessage(senderID, "Postback called");
