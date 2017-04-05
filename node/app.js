@@ -328,7 +328,7 @@ function approveLocation(senderID, recipientID, message) {
   var lon = message.attachments[0].payload.coordinates.lat;
 
   // sendTextMessage(senderID, "There are 2 vehicles available nearby.");
-  sendVehicleMessage(recipientID);
+  sendVehicleMessage(senderID);
   sendTextMessage(senderID, "Excellent!\n Looking for vehicles..."); //FIXME: Incorrect order of sending messages
 
 }
