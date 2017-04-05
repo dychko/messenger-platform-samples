@@ -344,8 +344,8 @@ function sendVehicleMessage(recipientId) {
         payload: {
           template_type: "generic",
           elements: [{
-            // title: "Emio ",
-            // subtitle: "Next-generation virtual reality",
+            title: "Available now",
+            // subtitle: "",
             image_url: SERVER_URL + "/assets/17814153_1471489529536199_1252537326_n.png",
             buttons: [{
               type: "postback",
@@ -353,7 +353,7 @@ function sendVehicleMessage(recipientId) {
               payload: "BOOK_VEHICLE_PAYLOAD"
             }]
           },{
-            // title: "Emio ",
+            title: "Available now",
             // subtitle: "Next-generation virtual reality",
             image_url: SERVER_URL + "/assets/17813901_1471489532869532_716545202_n.png",
             buttons: [{
