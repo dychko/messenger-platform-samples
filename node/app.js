@@ -316,21 +316,60 @@ function receivedMessage(event) {
     }
   } else if (messageAttachments) {
     if (messageAttachments[0].type === 'location') {
-      approveLocation(senderID, message);
+      approveLocation(senderID, recipientID, message);
     } else {
       sendTextMessage(senderID, "Message with attachment received");
     }
   }
 }
 
-function approveLocation(senderID, message) {
+function approveLocation(senderID, recipientID, message) {
   var lat = message.attachments[0].payload.coordinates.lat;
   var lon = message.attachments[0].payload.coordinates.lat;
 
-  sendTextMessage(senderID, "There are 3 cars available.");
-  sendTextMessage(senderID, "Excellent!\n Looking for vehicles...");
+  // sendTextMessage(senderID, "There are 2 vehicles available nearby.");
+  sendVehicleMessage(recipientID);
+  sendTextMessage(senderID, "Excellent!\n Looking for vehicles..."); //FIXME: Incorrect order of sending messages
 
 }
+
+function sendVehicleMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            // title: "Emio ",
+            // subtitle: "Next-generation virtual reality",
+            image_url: SERVER_URL + "/assets/17814153_1471489529536199_1252537326_n.png",
+            buttons: [{
+              type: "book_vehicle",
+              title: "Book now",
+              payload: "BOOK_VEHICLE_PAYLOAD"
+            }]
+          },{
+            // title: "Emio ",
+            // subtitle: "Next-generation virtual reality",
+            image_url: SERVER_URL + "/assets/17813901_1471489532869532_716545202_n.png",
+            buttons: [{
+              type: "book_vehicle",
+              title: "Book now",
+              payload: "BOOK_VEHICLE_PAYLOAD"
+            }]
+          }]
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
 
 /*
  * Delivery Confirmation Event
