@@ -359,7 +359,7 @@ function sendVehicleMessage(recipientId) {
           },{
             title: "Available now",
             // subtitle: "Next-generation virtual reality",
-            image_url: SERVER_URL + "/assets/17813901_1471489532869532_716545202_n.png",
+            image_url: SERVER_URL + "/assets/mercedes.png",
             buttons: [{
               type: "postback",
               title: "Book now",
@@ -388,7 +388,7 @@ function sendBookedVehicleMessage(recipientId) {
           elements: [{
             title: "Booked",
             // subtitle: "",
-            image_url: SERVER_URL + "/assets/17814153_1471489529536199_1252537326_n.png",
+            image_url: SERVER_URL + "/assets/emmy_white.png",
             buttons: [{
               type: "postback",
               title: "Open",
@@ -409,7 +409,7 @@ function sendBookedVehicleMessage(recipientId) {
 }
 
 function openVehicleMessage(recipientId) {
-  sendTextMessage(senderID,
+  sendTextMessage(recipientId,
     "Vehicle is opened. You are free to move. Enjoy your trip." +
     "\nTo close vehicle send \"Close\"");
 }
