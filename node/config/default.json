@@ -1,6 +1,6 @@
 {
-    "appSecret": "",
-    "pageAccessToken": "",
-    "validationToken": "",
-    "serverURL": ""
+    "appSecret": "003863fbf5b146f54a35c42e224a61c7",
+    "pageAccessToken": "EAAFpUIc9gecBADmTTk9fbS0xSxrRJjJ4i2ODEgHZCZCRaUZCy6mDxnuQAIZCP262N6pXQtM6c3VQM7WqX8rAVGnzYd91cApAdlRtR9ZBRdyiIvZCjd7n5Y6DSPb5avQhOPxrnXQ0KCmSWeHtRLMZBpNTJMzZASYSUZAxj9enZCaZCcONgZDZD",
+    "validationToken": "I*&GIILJH(&GYUGy8G&^F&^FU&tg98&B*G",
+    "serverURL": "https://free2move-msg.herokuapp.com/"
 }
