@@ -410,7 +410,8 @@ function sendBookedVehicleMessage(recipientId) {
 
 function openVehicleMessage(recipientId) {
   sendTextMessage(recipientId,
-    "Vehicle is opened. You are free to move. Enjoy your trip." +
+    "Vehicle is opened. You are free to move. " +
+    "\nEnjoy your trip!" +
     "\nTo close vehicle send \"Close\"");
 }
 
