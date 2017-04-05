@@ -315,16 +315,22 @@ function receivedMessage(event) {
         sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
-      if (messageAttachments[0].type === 'location') {
-          var lat = message.attachments[0].payload.coordinates.lat;
-          var lon = message.attachments[0].payload.coordinates.lat;
-          sendTextMessage(senderID, "Location received: \n" + lat + "," + lon);
-      } else {
-          sendTextMessage(senderID, "Message with attachment received");
-      }
+    if (messageAttachments[0].type === 'location') {
+      approveLocation(message);
+    } else {
+      sendTextMessage(senderID, "Message with attachment received");
+    }
   }
 }
 
+function approveLocation(message) {
+  var lat = message.attachments[0].payload.coordinates.lat;
+  var lon = message.attachments[0].payload.coordinates.lat;
+
+  sendTextMessage(senderID, "Excellent");
+  sendTextMessage(senderID, "There are 3 cars available.");
+
+}
 
 /*
  * Delivery Confirmation Event
@@ -372,7 +378,7 @@ function receivedPostback(event) {
     "at %d", senderID, recipientID, payload, timeOfPostback);
 
   if (payload === "GET_STARTED_PAYLOAD") {
-    sendTextMessage(senderID, "Hello" +  event.sender.user_first_name + ", it's great to meet you! I'm Free2Move and I'm a robot. I'm here to help you to get to know carsharing.");
+    sendTextMessage(senderID, "Hello, it's great to meet you! I'm Free2Move and I'm a robot. I'm here to help you to get to know carsharing.");
   } else {
     // When a postback is called, we'll send a message back to the sender to
     // let them know it was successful
