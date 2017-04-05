@@ -348,7 +348,7 @@ function sendVehicleMessage(recipientId) {
             // subtitle: "Next-generation virtual reality",
             image_url: SERVER_URL + "/assets/17814153_1471489529536199_1252537326_n.png",
             buttons: [{
-              type: "book_vehicle",
+              type: "postback",
               title: "Book now",
               payload: "BOOK_VEHICLE_PAYLOAD"
             }]
@@ -357,7 +357,7 @@ function sendVehicleMessage(recipientId) {
             // subtitle: "Next-generation virtual reality",
             image_url: SERVER_URL + "/assets/17813901_1471489532869532_716545202_n.png",
             buttons: [{
-              type: "book_vehicle",
+              type: "postback",
               title: "Book now",
               payload: "BOOK_VEHICLE_PAYLOAD"
             }]
