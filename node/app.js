@@ -327,25 +327,10 @@ function approveLocation(senderID, message) {
   var lat = message.attachments[0].payload.coordinates.lat;
   var lon = message.attachments[0].payload.coordinates.lat;
 
-  sendTextMessage(senderID, "Excellent!\n Looking for vehicles...");
-  findVehicles();
   sendTextMessage(senderID, "There are 3 cars available.");
+  sendTextMessage(senderID, "Excellent!\n Looking for vehicles...");
 
 }
-
-function findVehicles() {
-  function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-      if ((new Date().getTime() - start) > milliseconds){
-        break;
-      }
-    }
-  }
-
-  sleep(1000);
-}
-
 
 /*
  * Delivery Confirmation Event
