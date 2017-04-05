@@ -307,8 +307,9 @@ function receivedMessage(event) {
         sendAccountLinking(senderID);
         break;
 
-        case 'location':
-
+      case 'book':
+        sendLocationRequest(senderID);
+        break;
 
       default:
         sendTextMessage(senderID, messageText);
@@ -802,6 +803,24 @@ function sendAccountLinking(recipientId) {
       }
     }
   };  
+
+  callSendAPI(messageData);
+}
+
+function sendLocationRequest(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message:{
+      text: "Where are you now?",
+      quick_replies:[
+        {
+          "content_type":"location"
+        }
+      ]
+    }
+  };
 
   callSendAPI(messageData);
 }
