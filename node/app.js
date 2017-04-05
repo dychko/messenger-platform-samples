@@ -316,14 +316,14 @@ function receivedMessage(event) {
     }
   } else if (messageAttachments) {
     if (messageAttachments[0].type === 'location') {
-      approveLocation(message);
+      approveLocation(senderID, message);
     } else {
       sendTextMessage(senderID, "Message with attachment received");
     }
   }
 }
 
-function approveLocation(message) {
+function approveLocation(senderID, message) {
   var lat = message.attachments[0].payload.coordinates.lat;
   var lon = message.attachments[0].payload.coordinates.lat;
 
