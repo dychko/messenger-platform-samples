@@ -453,6 +453,7 @@ function receivedPostback(event) {
     sendTextMessage(senderID, "Hello, it's great to meet you! I'm Free2Move and I'm a robot. I'm here to help you to get to know carsharing.");
   } else if (payload === "BOOK_VEHICLE_PAYLOAD") {
     sendBookedVehicleMessage(senderID);
+  } else {
     // When a postback is called, we'll send a message back to the sender to
     // let them know it was successful
     sendTextMessage(senderID, "Postback called");
