@@ -335,7 +335,7 @@ function approveLocation(senderID, message) {
 
 function findVehicles() {
   setTimeout(function() {
-  }, 200);
+  }, 1000);
 }
 
 
