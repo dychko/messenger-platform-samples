@@ -308,7 +308,7 @@ function receivedMessage(event) {
         break;
 
       case 'Close':
-        sendTextMessage(senderID, "Vehicle is closed. Thank you for using Free2Move bot.");
+        sendTextMessage(senderID, "Vehicle is closed. Thank you for using Free2Move bot. 😀");
         break;
 
       case 'I want to book a vehicle':
