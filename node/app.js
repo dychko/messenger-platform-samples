@@ -371,9 +371,14 @@ function receivedPostback(event) {
   console.log("Received postback for user %d and page %d with payload '%s' " + 
     "at %d", senderID, recipientID, payload, timeOfPostback);
 
-  // When a postback is called, we'll send a message back to the sender to 
-  // let them know it was successful
-  sendTextMessage(senderID, "Postback called");
+  if (payload === "GET_STARTED_PAYLOAD") {
+    sendTextMessage(senderID, "Hello" +  event.sender.user_first_name + ", it's great to meet you! I'm Free2Move and I'm a robot. I'm here to help you to get to know carsharing.");
+  } else {
+    // When a postback is called, we'll send a message back to the sender to
+    // let them know it was successful
+    sendTextMessage(senderID, "Postback called");
+  }
+
 }
 
 /*
