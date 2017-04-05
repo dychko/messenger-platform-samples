@@ -307,7 +307,7 @@ function receivedMessage(event) {
         sendAccountLinking(senderID);
         break;
 
-      case 'I want to book a car':
+      case 'I want to book a vehicle':
         sendLocationRequest(senderID);
         break;
 
@@ -327,10 +327,17 @@ function approveLocation(senderID, message) {
   var lat = message.attachments[0].payload.coordinates.lat;
   var lon = message.attachments[0].payload.coordinates.lat;
 
-  sendTextMessage(senderID, "Excellent");
+  sendTextMessage(senderID, "Excellent!\n Looking for vehicles...");
+  findVehicles();
   sendTextMessage(senderID, "There are 3 cars available.");
 
 }
+
+function findVehicles() {
+  setTimeout(function() {
+  }, 200);
+}
+
 
 /*
  * Delivery Confirmation Event
