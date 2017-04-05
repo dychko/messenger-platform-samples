@@ -376,6 +376,8 @@ function sendVehicleMessage(recipientId) {
 
 
 function sendBookedVehicleMessage(recipientId) {
+  var lat = "52.493254";
+  var long = "13.394971";
   var messageData = {
     recipient: {
       id: recipientId
@@ -398,7 +400,12 @@ function sendBookedVehicleMessage(recipientId) {
               title: "Cancel",
               payload: "CANCEL_VEHICLE_PAYLOAD"
             }
-            ]
+            ],
+            element: {
+              title: "Location of the vehicle",
+              image_url: "https:\/\/maps.googleapis.com\/maps\/api\/staticmap?size=764x400&center="+lat+","+long+"&zoom=25&markers="+lat+","+long,
+              item_url: "http:\/\/maps.apple.com\/maps?q="+lat+","+long+"&z=16"
+            }
           }]
         }
       }
