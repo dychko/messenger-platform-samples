@@ -350,7 +350,7 @@ function sendVehicleMessage(recipientId) {
           elements: [{
             title: "Available now",
             // subtitle: "",
-            image_url: SERVER_URL + "/assets/17814153_1471489529536199_1252537326_n.png",
+            image_url: SERVER_URL + "/assets/emmy_white.png",
             buttons: [{
               type: "postback",
               title: "Book now",
