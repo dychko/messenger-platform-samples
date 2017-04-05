@@ -307,6 +307,10 @@ function receivedMessage(event) {
         sendAccountLinking(senderID);
         break;
 
+      case 'Close':
+        sendTextMessage(senderID, "Vehicle is closed. Thank you for using Free2Move bot.");
+        break;
+
       case 'I want to book a vehicle':
         sendLocationRequest(senderID);
         break;
@@ -377,6 +381,7 @@ function sendBookedVehicleMessage(recipientId) {
       id: recipientId
     },
     message: {
+      text: "Great. Your vehicle is booked:",
       attachment: {
         type: "template",
         payload: {
@@ -402,6 +407,12 @@ function sendBookedVehicleMessage(recipientId) {
   };
 
   callSendAPI(messageData);
+}
+
+function openVehicleMessage(recipientId) {
+  sendTextMessage(senderID,
+    "Vehicle is opened. You are free to move. Enjoy your trip." +
+    "\nTo close vehicle send \"Close\"");
 }
 
 /*
@@ -453,6 +464,8 @@ function receivedPostback(event) {
     sendTextMessage(senderID, "Hello, it's great to meet you! I'm Free2Move and I'm a robot. I'm here to help you to get to know carsharing.");
   } else if (payload === "BOOK_VEHICLE_PAYLOAD") {
     sendBookedVehicleMessage(senderID);
+  } else if (payload === "OPEN_VEHICLE_PAYLOAD") {
+    openVehicleMessage(senderID);
   } else {
     // When a postback is called, we'll send a message back to the sender to
     // let them know it was successful
