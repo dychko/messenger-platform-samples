@@ -307,7 +307,7 @@ function receivedMessage(event) {
         sendAccountLinking(senderID);
         break;
 
-      case 'book':
+      case 'I want to book a car':
         sendLocationRequest(senderID);
         break;
 
